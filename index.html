@@ -1,0 +1,507 @@
+<title>Dr. Felipe Stella</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Dr. Felipe Stella, médico dermatologista em Guarapuava (PR). Dermatologia clínica, cirúrgica e estética, tricologia e queda de cabelo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400..600&family=IBM+Plex+Mono:wght@400&family=Poppins:wght@200;300;400;500;600&display=swap">
+<style>
+/* Layout: página clara e fotográfica. Hero em foto arredondada com retrato embutido no título; manifesto com fotos no meio do texto; carrossel de tratamentos em cards de foto com tags de vidro; destaque "Sobre" em ficha de linhas sobre foto desfocada; depoimentos em mosaico; agendamento em faixa de vidro sobre foto. Tema único claro. */
+:root{
+  --bg:#f6f4f0; --white:#fdfcfa; --a:#1d1b19; --b:#fffaf4;
+  --fg:var(--a); --fg-soft:#5d5851; --fg-mute:#8f897f;
+  --glass:rgba(255,255,255,.6); --edge:rgba(255,255,255,.95); --hair:#e3ded6; --accent:#b0592a;
+  --on:#fffaf4; --on-soft:rgba(255,250,244,.86); --on-mute:rgba(255,250,244,.62); --on-hair:rgba(255,250,244,.32);
+  --f-sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-serif:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --s-hero:clamp(2.7rem,6vw,5.4rem); --s-h2:clamp(2.1rem,4.4vw,3.6rem);
+  --r:28px; --max:1760px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-sans);font-size:1rem;line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:300;text-wrap:balance;letter-spacing:-.035em;line-height:1.04}
+p,figure,blockquote{margin:0}
+img{display:block}
+.wrap{max-width:var(--max);margin-inline:auto;padding-left:max(clamp(12px,1.6vw,28px),env(safe-area-inset-left,0px));padding-right:max(clamp(12px,1.6vw,28px),env(safe-area-inset-right,0px))}
+.it{font-family:var(--f-serif);font-style:italic;font-weight:500;font-optical-sizing:none;font-variation-settings:"opsz" 10;letter-spacing:-.02em}
+.label{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.todo{display:inline-block;font-family:var(--f-mono);font-size:.6rem;padding:.12rem .5rem;border-radius:999px;border:1px dashed currentColor;opacity:.8}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.glass{background:var(--glass);border:1px solid var(--edge);backdrop-filter:blur(22px) saturate(1.25);-webkit-backdrop-filter:blur(22px) saturate(1.25)}
+.glass-dark{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);color:var(--on);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+
+/* Botões: pílula com seta em círculo */
+.btn{--c:var(--a);--k:var(--b);display:inline-flex;align-items:center;gap:.8rem;padding:.42rem .45rem .42rem 1.2rem;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);font-size:.86rem;font-weight:400;text-decoration:none;color:var(--c);background:transparent;transition:background .25s,color .25s,border-color .25s;white-space:nowrap;cursor:pointer;font-family:inherit}
+.btn .ico{display:grid;place-items:center;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--c);color:var(--k);transition:transform .3s}
+.btn .ico svg{width:14px;height:14px}
+.btn:hover{background:color-mix(in srgb,var(--c) 9%,transparent)}
+.btn:hover .ico{transform:translateX(3px)}
+.btn--solid{background:var(--c);border-color:var(--c);color:var(--k)}
+.btn--solid .ico{background:var(--k);color:var(--c)}
+.btn--solid:hover{background:color-mix(in srgb,var(--c) 85%,var(--k))}
+.on-photo .btn,.btn.light{--c:var(--on);--k:var(--a)}
+.round{display:grid;place-items:center;width:2.9rem;height:2.9rem;border-radius:50%;border:1px solid var(--hair);background:var(--white);color:var(--a);cursor:pointer;transition:background .2s,color .2s}
+.round:hover{background:var(--a);color:var(--b)}
+.round svg{width:16px;height:16px}
+
+/* Header */
+header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:50;margin-top:12px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:.5rem .5rem .5rem 1.4rem;border-radius:999px;box-shadow:0 10px 40px -24px rgba(60,35,15,.35)}
+.brand{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+.brand b{font-size:1.25rem;font-weight:400;letter-spacing:-.02em}
+.brand small{font-size:.5rem;letter-spacing:.34em;text-transform:uppercase;color:var(--fg-mute);margin-top:.28rem}
+nav ul{display:flex;gap:1.7rem;list-style:none;margin:0;padding:0}
+nav a{font-size:.82rem;text-decoration:none;color:var(--fg-soft);transition:color .2s}
+nav a:hover{color:var(--fg)}
+@media (max-width:900px){nav{display:none}}
+
+section{padding-block:clamp(4rem,8vw,7rem)}
+
+/* 1. Hero */
+.hero{position:relative;margin-top:1rem;height:clamp(600px,86vh,840px);border-radius:clamp(24px,3vw,36px);overflow:hidden;color:var(--on);isolation:isolate}
+.hero>img{object-position:50% 40%}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(25,12,5,.18) 0%,transparent 30%,transparent 45%,rgba(25,12,5,.62) 100%)}
+.hero .in{position:absolute;inset:auto 0 0 0;z-index:2;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);align-items:end;gap:2rem;padding:clamp(1.4rem,3.5vw,3rem)}
+.hero .copy{display:flex;flex-direction:column;gap:1.3rem;min-width:0}
+.hero .kicker{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--on-soft)}
+.hero h1{font-size:var(--s-hero);font-weight:300}
+.hero h1 .it{font-size:1.06em}
+.inline-img{display:inline-block;width:1.55em;height:.78em;border-radius:999px;overflow:hidden;vertical-align:-.05em;position:relative;border:1px solid rgba(255,255,255,.6);margin-inline:.06em}
+.inline-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .lede{max-width:30rem;font-size:.95rem;color:var(--on-soft)}
+.cta-row{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.rating{display:flex;align-items:center;gap:.7rem;font-size:.78rem;color:var(--on-soft)}
+.rating b{font-size:1.3rem;font-weight:400;color:var(--on)}
+.st{color:#f0c07a;letter-spacing:.1em;font-size:.72rem}
+.hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:.7rem;min-width:0}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:flex-end}
+.tags span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:.36rem .8rem;border-radius:999px}
+.doc{display:flex;gap:.8rem;align-items:center;padding:.6rem;border-radius:22px;width:min(100%,290px)}
+.doc .face{position:relative;width:84px;height:96px;border-radius:16px;overflow:hidden;flex:none;background:#f3f3f1}
+.doc .face img{object-position:50% 15%}
+.doc b{display:block;font-weight:400;font-size:1rem;letter-spacing:-.02em;line-height:1.2}
+.doc small{display:block;font-size:.72rem;color:var(--on-soft);margin-bottom:.5rem}
+.doc a{font-size:.74rem;color:var(--on);text-underline-offset:3px}
+@media (max-width:860px){.hero{height:auto;min-height:640px}.hero .in{grid-template-columns:1fr;position:relative;padding-top:16rem}.hero .side{align-items:flex-start}.tags{justify-content:flex-start}}
+@media (prefers-reduced-motion:no-preference){
+  .hero>img{animation:settle 1.8s cubic-bezier(.2,.7,.1,1) both}
+  .hero .copy>*{animation:rise .9s cubic-bezier(.2,.7,.1,1) both}
+  .hero .copy>*:nth-child(2){animation-delay:.08s}.hero .copy>*:nth-child(3){animation-delay:.16s}.hero .copy>*:nth-child(4){animation-delay:.24s}
+  @keyframes settle{from{transform:scale(1.06)}to{transform:none}}
+  @keyframes rise{from{opacity:.25;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+
+/* 2. Manifesto com fotos no texto */
+.manifesto{position:relative;text-align:center;padding-block:clamp(5rem,10vw,9rem)}
+.manifesto .label{display:block;margin-bottom:1.8rem;color:var(--fg-mute)}
+.manifesto p.big{max-width:54rem;margin-inline:auto;font-size:clamp(1.6rem,3.6vw,2.9rem);line-height:1.22;letter-spacing:-.03em}
+.manifesto p.big .soft{color:var(--fg-mute)}
+.manifesto p.big .inline-img{border-color:var(--white);box-shadow:0 6px 20px -10px rgba(60,35,15,.4)}
+.manifesto .btn{margin-top:2.4rem}
+.float-ph{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(60,35,15,.5)}
+.float-ph.f1{left:4%;top:12%;width:150px;height:96px}
+.float-ph.f2{right:5%;top:18%;width:110px;height:120px}
+.float-ph.f3{left:9%;bottom:12%;width:110px;height:110px}
+.float-ph.f4{right:10%;bottom:9%;width:160px;height:96px}
+@media (max-width:1100px){.float-ph{display:none}}
+
+/* 3. Tratamentos: carrossel */
+.treat{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,2fr);gap:clamp(1.5rem,4vw,3rem);align-items:stretch}
+.treat .intro{display:flex;flex-direction:column;gap:1.2rem;padding-block:.4rem}
+.treat h2{font-size:var(--s-h2)}
+.treat .intro p{color:var(--fg-soft);font-size:.95rem;max-width:22rem}
+.treat .ctrl{margin-top:auto;display:flex;align-items:center;gap:.6rem}
+.treat .count{font-family:var(--f-mono);font-size:.75rem;color:var(--fg-mute);margin-right:.4rem;font-variant-numeric:tabular-nums}
+.track{display:flex;gap:.8rem;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;touch-action:pan-x pan-y;scroll-snap-type:x mandatory;scrollbar-width:none;min-width:0;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}
+.tcard{position:relative;flex:0 0 clamp(260px,30vw,340px);aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;scroll-snap-align:start;color:var(--on);text-decoration:none;isolation:isolate}
+.tcard img{transition:transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.tcard:hover img{transform:scale(1.05)}
+.tcard::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(25,12,5,.12),transparent 30%,transparent 48%,rgba(25,12,5,.7))}
+.tcard .tg{position:absolute;z-index:2;left:1rem;top:1rem;right:4rem;display:flex;flex-wrap:wrap;gap:.35rem}
+.tcard .tg span{font-size:.64rem;padding:.3rem .7rem;border-radius:999px}
+.tcard .go{position:absolute;z-index:2;right:1rem;top:1rem;display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--on);color:var(--a);transition:transform .3s}
+.tcard:hover .go{transform:rotate(-45deg)}
+.tcard .go svg{width:14px;height:14px}
+.tcard .tx{position:absolute;z-index:2;left:1.2rem;right:1.2rem;bottom:1.2rem;display:flex;flex-direction:column;gap:.4rem}
+.tcard h3{font-size:1.7rem;font-weight:300}
+.tcard p{font-size:.84rem;color:var(--on-soft);line-height:1.5}
+@media (max-width:860px){.treat{grid-template-columns:1fr}.treat .ctrl{margin-top:.4rem}}
+
+/* 4. Sobre: ficha de linhas sobre foto desfocada */
+.tone{position:relative;overflow:hidden;isolation:isolate;color:var(--on);border-radius:clamp(28px,4vw,44px);margin-inline:max(10px,env(safe-area-inset-left,0px)) max(10px,env(safe-area-inset-right,0px))}
+.tone>.bg{position:absolute;inset:-90px;z-index:-2}
+.tone>.bg img{filter:blur(46px) saturate(1.05);transform:scale(1.12)}
+.tone::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(80,45,25,.22),rgba(60,32,18,.36))}
+.tone .label{color:#f3dcc0}
+.about{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(1rem,3vw,2rem);align-items:stretch}
+.about .pic{position:relative;border-radius:var(--r);overflow:hidden;min-height:560px;background:#f3f3f1}
+.about .pic img{object-position:50% 18%}
+.about .right{display:flex;flex-direction:column;gap:1.6rem;min-width:0}
+.about h2{font-size:var(--s-h2);margin-top:1rem}
+.about .bio{color:var(--on-soft);max-width:34rem;font-size:.95rem}
+.spec{border:1px solid var(--on-hair);border-radius:4px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.spec>div{padding:1.1rem 1.3rem;border-bottom:1px solid var(--on-hair);min-width:0}
+.spec .row{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.spec .cap{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-soft)}
+.spec .name{grid-column:1/-1;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;letter-spacing:-.04em;line-height:1;padding-block:1.6rem}
+.spec .l{border-right:1px solid var(--on-hair)}
+.spec .sub{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-mute);margin-bottom:.9rem}
+.areas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.areas li{font-size:.84rem;padding:.38rem .9rem;border-radius:999px;border:1px solid var(--on-hair);background:rgba(255,255,255,.08)}
+.edu{list-style:none;margin:0;padding:0}
+.edu li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.55rem 0;border-top:1px solid var(--on-hair)}
+.edu li:first-child{border-top:0;padding-top:0}
+.edu b{font-weight:400;font-size:.9rem}
+.edu span{font-family:var(--f-mono);font-size:.68rem;color:var(--on-mute);text-align:right;white-space:nowrap}
+.spec .steps{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:0;padding-block:1.4rem;gap:1rem;text-align:center}
+.spec .steps svg{width:30px;height:30px;margin:0 auto .6rem;display:block}
+.spec .steps b{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:400}
+.spec .steps span{display:block;font-size:.72rem;color:var(--on-mute);margin-top:.2rem}
+@media (max-width:900px){.about{grid-template-columns:1fr}.about .pic{min-height:420px}}
+@media (max-width:560px){.spec{grid-template-columns:1fr}.spec .l{border-right:0}.spec .steps{grid-template-columns:1fr 1fr;row-gap:1.4rem}}
+
+/* 5. Depoimentos: mosaico */
+.rev-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;margin-bottom:2.6rem}
+.rev-head h2{font-size:var(--s-h2)}
+.rev-head .score{display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--fg-soft)}
+.rev-head .score b{font-size:1.5rem;font-weight:300;color:var(--fg)}
+.rev-head .st{color:#c08a3e}
+.mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(230px,auto);gap:.8rem}
+.mosaic .ph{position:relative;border-radius:22px;overflow:hidden}
+.mosaic .ph.tall{grid-row:span 2}
+.quote{position:relative;overflow:hidden;background:linear-gradient(155deg,#fffdfb 0%,#f6ede3 100%);border:1px solid rgba(255,255,255,.9);box-shadow:0 1px 0 var(--hair),0 26px 50px -36px rgba(90,55,30,.35);border-radius:22px;padding:clamp(1.6rem,2.6vw,2.2rem);display:flex;flex-direction:column;gap:1.4rem}
+.quote .stars{display:flex;align-items:center;gap:.7rem}
+.quote .stars span{color:#c4893a;font-size:1.25rem;letter-spacing:.18em;line-height:1}
+.quote .stars b{font-weight:500;font-size:.78rem;padding:.2rem .6rem;border-radius:999px;background:rgba(196,137,58,.14);color:#8a5a1f}
+.quote blockquote{position:relative;font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.45;letter-spacing:-.02em;font-weight:300}
+.quote .by{margin-top:auto;padding-top:1rem;border-top:1px solid var(--hair);font-size:.72rem;letter-spacing:.06em;color:var(--fg-mute)}
+@media (max-width:860px){.mosaic{grid-template-columns:1fr 1fr}.mosaic .ph.tall{grid-row:span 1;min-height:300px}}
+@media (max-width:560px){.mosaic{grid-template-columns:1fr}}
+
+/* 6. Agendamento: faixa de vidro sobre foto */
+.book{position:relative;border-radius:clamp(24px,3vw,36px);overflow:hidden;min-height:620px;color:var(--on);isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.book>img{z-index:-1}
+.book .panel{margin:clamp(.6rem,1.2vw,1rem);border-radius:clamp(18px,2.4vw,28px);padding:clamp(1.6rem,4vw,3.2rem);display:flex;flex-direction:column;gap:1.4rem;background:rgba(70,40,22,.28);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(30px) saturate(1.2);-webkit-backdrop-filter:blur(30px) saturate(1.2)}
+.book h2{font-size:var(--s-h2);margin-top:1rem}
+.book .label{color:#f3dcc0}
+.book .intro{color:var(--on-soft);font-size:.93rem;max-width:26rem}
+.place{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;border-top:1px solid var(--on-hair)}
+.place .city{font-size:1.5rem;font-weight:300;letter-spacing:-.03em;line-height:1.1}
+.place small{display:block;font-size:.78rem;color:var(--on-soft)}
+.place .phone{font-family:var(--f-mono);font-size:.78rem;color:var(--on-mute);user-select:all}
+.qa{border-top:1px solid var(--on-hair)}
+.qa details{border-bottom:1px solid var(--on-hair)}
+.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.85rem 0;font-size:.9rem;font-weight:400}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-weight:200;font-size:1.4rem;line-height:.8;transition:transform .3s}
+.qa details[open] summary::after{transform:rotate(45deg)}
+.qa p{padding:0 0 .9rem;font-size:.84rem;color:var(--on-soft)}
+@media (max-width:860px){.book{grid-template-columns:1fr;min-height:0;padding-top:300px}}
+
+/* Rodapé */
+footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
+.mark{font-size:clamp(3.6rem,16.5vw,14.5rem);font-weight:200;letter-spacing:-.06em;line-height:.85;white-space:nowrap;text-align:center}
+.mark .it{color:var(--accent)}
+.f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid var(--hair);font-size:.74rem;color:var(--fg-mute)}
+.f-bot a{color:var(--fg-soft)}
+
+/* Animações: entrada ao rolar (sempre a partir de um estado visível), zoom suave nas fotos, parallax leve e flutuação */
+@media (prefers-reduced-motion:no-preference){
+  .anim .rv{opacity:.3;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.1,1) var(--d,0s),transform .9s cubic-bezier(.2,.7,.1,1) var(--d,0s)}
+  .anim .rv.in{opacity:1;transform:none}
+  .anim .rv-img img{transform:scale(1.1);transition:transform 1.8s cubic-bezier(.2,.7,.1,1) var(--d,0s)}
+  .anim .rv-img.in img{transform:none}
+  .hero>img{top:-16%;height:116%;translate:0 var(--py,0px)}
+  .float-ph{translate:0 var(--py,0px);animation:bob 7s ease-in-out infinite alternate}
+  .float-ph.f2{animation-delay:-2s}.float-ph.f3{animation-delay:-4s}.float-ph.f4{animation-delay:-5.5s}
+  @keyframes bob{from{transform:translateY(-6px) rotate(-1deg)}to{transform:translateY(8px) rotate(1deg)}}
+  .inline-img img{animation:breathe 6s ease-in-out infinite alternate}
+  @keyframes breathe{to{transform:scale(1.12)}}
+  .tags span{animation:rise .8s cubic-bezier(.2,.7,.1,1) both}
+  .tags span:nth-child(2){animation-delay:.35s}.tags span:nth-child(3){animation-delay:.45s}
+  .doc{animation:rise 1s .55s cubic-bezier(.2,.7,.1,1) both}
+  .bar{transition:box-shadow .3s,background .3s}
+  header.scrolled .bar{box-shadow:0 16px 40px -20px rgba(60,35,15,.45);background:rgba(255,255,255,.78)}
+  .quote{transition:transform .4s cubic-bezier(.2,.7,.1,1),box-shadow .4s}
+  .quote:hover{transform:translateY(-4px);box-shadow:0 24px 40px -28px rgba(60,35,15,.4)}
+  .areas li,.round{transition:background .25s,color .25s,transform .25s}
+  .areas li:hover{background:rgba(255,255,255,.2)}
+  .round:active{transform:scale(.92)}
+}
+
+.float{display:none}
+@media (max-width:640px){
+  .float{display:inline-flex;position:fixed;z-index:55;right:max(14px,calc(env(safe-area-inset-right,0px) + 14px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);box-shadow:0 10px 30px rgba(40,18,6,.3)}
+  footer{padding-bottom:5.5rem}
+  .bar>.btn{display:none}
+}
+</style>
+
+<header class="wrap">
+  <div class="bar glass">
+    <a class="brand" href="#topo"><b>Felipe <span class="it">Stella</span></b><small>Dermatologista</small></a>
+    <nav aria-label="Seções">
+      <ul>
+        <li><a href="#tratamentos">Tratamentos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#agendar">Agendar</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--solid" data-wa href="https://wa.me/554284165338" target="_blank" rel="noopener">Agendar <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span></a>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="wrap">
+    <div class="hero on-photo">
+      <img class="cover" src="h-hero.jpg" alt="Mulher sorrindo em close, com a pele iluminada pela luz natural" style="object-position:50% 30%">
+      <div class="in">
+        <div class="copy">
+          <p class="kicker">Dermatologista em Guarapuava (PR)</p>
+          <h1>Dermatologia que olha para você <span class="it">por inteiro.</span></h1>
+          <p class="lede">Pele, cabelo e unhas, com consulta sem pressa e um plano feito para o seu caso.</p>
+          <div class="cta-row">
+            <a class="btn btn--solid" data-wa href="https://wa.me/554284165338" target="_blank" rel="noopener">Agendar consulta <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span></a>
+            <div class="rating"><b>5,0</b><div><div class="st" aria-label="5 de 5 estrelas">★★★★★</div>8 avaliações no Doctoralia</div></div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="tags"><span class="glass-dark">Clínica</span><span class="glass-dark">Tricologia</span><span class="glass-dark">Estética</span></div>
+          <div class="doc glass-dark">
+            <span class="face"><img class="cover" src="felipe-jaleco.jpg" alt="Dr. Felipe Stella de jaleco"></span>
+            <div><b>Dr. Felipe Stella</b><small>Médico dermatologista</small><a href="#sobre">Conheça o Dr. Felipe</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="manifesto">
+    <span class="float-ph f1"><img class="cover" src="u-rosto.jpg" alt=""></span>
+    <span class="float-ph f2"><img class="cover" src="u-ombro.jpg" alt=""></span>
+    <span class="float-ph f3"><img class="cover" src="u-serum.jpg" alt="" style="object-position:50% 30%"></span>
+    <span class="float-ph f4"><img class="cover" src="u-sardas.jpg" alt="" style="object-position:50% 35%"></span>
+    <div class="wrap">
+      <span class="label">Sobre o cuidado</span>
+      <p class="big"><span class="it">Cada pele é única,</span> e o tratamento <span class="inline-img"><img src="u-textura.jpg" alt=""></span> também. <span class="soft">Escuta atenta, diagnóstico claro e acompanhamento com calma, consulta após consulta.</span></p>
+      <a class="btn btn--solid" data-wa href="https://wa.me/554284165338" target="_blank" rel="noopener">Agendar avaliação <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span></a>
+    </div>
+  </section>
+
+  <section id="tratamentos" style="padding-top:0">
+    <div class="wrap treat">
+      <div class="intro">
+        <span class="label">Tratamentos</span>
+        <h2>O que te traz ao <span class="it">consultório?</span></h2>
+        <p>Toque no que você sente. O WhatsApp abre com a mensagem pronta para agendar.</p>
+        <div class="ctrl">
+          <span class="count" id="count">01 / 06</span>
+          <button class="round" type="button" id="prev" aria-label="Anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 8H4M7.5 4.5 4 8l3.5 3.5"/></svg></button>
+          <button class="round" type="button" id="next" aria-label="Próximo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></button>
+        </div>
+      </div>
+      <div class="track" id="track">
+        <a class="tcard" data-wa="queda de cabelo" href="https://wa.me/554284165338" target="_blank" rel="noopener">
+          <img class="cover" src="t-cabelo.jpg" alt="" style="object-position:52% 50%">
+          <div class="tg"><span class="glass-dark">Alopecias</span><span class="glass-dark">Couro cabeludo</span></div>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
+          <div class="tx"><h3>Queda de <span class="it">cabelo</span></h3><p>Fios mais finos, falhas ou a linha do cabelo recuando.</p></div>
+        </a>
+        <a class="tcard" data-wa="manchas" href="https://wa.me/554284165338" target="_blank" rel="noopener">
+          <img class="cover" src="t-manchas.jpg" alt="" style="object-position:68% 50%">
+          <div class="tg"><span class="glass-dark">Melasma</span><span class="glass-dark">Sardas</span></div>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
+          <div class="tx"><h3>Manchas e <span class="it">melasma</span></h3><p>Manchas que voltam com o sol e não clareiam com cremes.</p></div>
+        </a>
+        <a class="tcard" data-wa="acne" href="https://wa.me/554284165338" target="_blank" rel="noopener">
+          <img class="cover" src="t-acne.jpg" alt="" style="object-position:38% 50%">
+          <div class="tg"><span class="glass-dark">Acne adulta</span><span class="glass-dark">Cicatrizes</span></div>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
+          <div class="tx"><h3>Acne e <span class="it">oleosidade</span></h3><p>Espinhas que persistem depois da adolescência ou deixam marcas.</p></div>
+        </a>
+        <a class="tcard" data-wa="coceira e descamação" href="https://wa.me/554284165338" target="_blank" rel="noopener">
+          <img class="cover" src="t-coceira.jpg" alt="" style="object-position:58% 50%">
+          <div class="tg"><span class="glass-dark">Psoríase</span><span class="glass-dark">Dermatite atópica</span></div>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
+          <div class="tx"><h3>Coceira e <span class="it">descamação</span></h3><p>Pele que coça, descama ou forma placas que voltam sempre.</p></div>
+        </a>
+        <a class="tcard" data-wa="pintas e lesões" href="https://wa.me/554284165338" target="_blank" rel="noopener">
+          <img class="cover" src="t-pinta.jpg" alt="" style="object-position:50% 50%">
+          <div class="tg"><span class="glass-dark">Pintas</span><span class="glass-dark">Cistos e lipomas</span></div>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
+          <div class="tx"><h3>Pintas e <span class="it">lesões</span></h3><p>Uma pinta nova ou que mudou de cor, forma ou tamanho.</p></div>
+        </a>
+        <a class="tcard" data-wa="tratamentos estéticos" href="https://wa.me/554284165338" target="_blank" rel="noopener">
+          <img class="cover" src="t-natural.jpg" alt="" style="object-position:50% 50%">
+          <div class="tg"><span class="glass-dark">Toxina botulínica</span><span class="glass-dark">Peelings</span></div>
+          <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
+          <div class="tx"><h3>Pele com <span class="it">naturalidade</span></h3><p>Linhas de expressão e textura, com indicação médica e critério.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tone" id="sobre">
+    <div class="bg" aria-hidden="true"><img class="cover" src="u-hero.jpg" alt=""></div>
+    <div class="wrap about">
+      <figure class="pic"><img class="cover" src="felipe-jaleco.jpg" alt="Dr. Felipe Stella sorrindo, de jaleco branco"></figure>
+      <div class="right">
+        <div>
+          <span class="label">Por que o Dr. Felipe</span>
+          <h2>Formação sólida, <span class="it">cuidado próximo.</span></h2>
+        </div>
+        <p class="bio">Médico dermatologista com residência pelo Hospital Universitário da UEL. Antes da especialização, atuou na Saúde da Família e na urgência e emergência. Dessa experiência vem o olhar para o paciente como um todo.</p>
+        <div class="spec">
+          <div class="row"><span class="cap">Dermatologia</span><span class="cap">Guarapuava · Castro</span></div>
+          <div class="name">Dr. Felipe <span class="it">Stella</span></div>
+          <div class="l">
+            <p class="sub">Áreas de atuação</p>
+            <ul class="areas"><li>Clínica</li><li>Cirúrgica</li><li>Estética</li><li>Tricologia</li></ul>
+          </div>
+          <div>
+            <p class="sub">Formação</p>
+            <ul class="edu">
+              <li><b>Medicina</b><span>UNIPLAC</span></li>
+              <li><b>Residência em Dermatologia</b><span>HU/UEL</span></li>
+              <li><b>Mestrado</b><span>FPP · em andamento</span></li>
+            </ul>
+          </div>
+          <div class="steps">
+            <div><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 9a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-8l-6 5v-5H9a3 3 0 0 1-3-3z"/><path d="M11 12.5h10M11 16h6"/></svg><b>Escuta</b><span>Histórico e hábitos</span></div>
+            <div><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="14" cy="14" r="7"/><path d="m19.5 19.5 6 6"/><circle cx="14" cy="14" r="2.2"/></svg><b>Exame</b><span>Pele, cabelo e unhas</span></div>
+            <div><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 5h10l5 5v17H9z"/><path d="M19 5v5h5"/><path d="m12.5 18 2.5 2.5 5-5"/></svg><b>Diagnóstico</b><span>Explicado com clareza</span></div>
+            <div><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="6" y="8" width="20" height="18" rx="2"/><path d="M6 13h20M11 5v5M21 5v5"/><circle cx="16" cy="19" r="1.4" fill="currentColor"/></svg><b>Plano</b><span>Tratamento e retornos</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos">
+    <div class="wrap">
+      <div class="rev-head">
+        <span class="label">Depoimentos</span>
+        <h2>Quem já passou <span class="it">por aqui</span></h2>
+        <div class="score"><b>5,0</b><span class="st" aria-label="5 de 5 estrelas">★★★★★</span><span>8 avaliações no Doctoralia</span></div>
+      </div>
+      <div class="mosaic">
+        <figure class="ph tall"><img class="cover" src="u-sorriso1.jpg" alt="Mulher sorrindo ao ar livre" style="object-position:50% 30%"></figure>
+        <figure class="quote">
+          <div class="stars" aria-label="5 de 5 estrelas"><span>★★★★★</span></div>
+          <blockquote>Muito atencioso e empático. Explicou com calma o que eu tinha e o porquê de cada etapa do tratamento.</blockquote>
+          <figcaption class="by">via Doctoralia</figcaption>
+        </figure>
+        <figure class="quote">
+          <div class="stars" aria-label="5 de 5 estrelas"><span>★★★★★</span></div>
+          <blockquote>Levei minha mãe de 99 anos para retirar um cisto. Ele teve todo o cuidado do mundo com ela.</blockquote>
+          <figcaption class="by">via Doctoralia</figcaption>
+        </figure>
+        <figure class="quote">
+          <div class="stars" aria-label="5 de 5 estrelas"><span>★★★★★</span></div>
+          <blockquote>Pontual, objetivo e cuidadoso. Pediu os exames necessários e me deixou segura com o plano.</blockquote>
+          <figcaption class="by">via Doctoralia</figcaption>
+        </figure>
+        <figure class="ph"><img class="cover" src="u-sorriso2.jpg" alt="Mulher de cabelo cacheado sorrindo" style="object-position:50% 28%"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="agendar" style="padding-top:0">
+    <div class="wrap">
+      <div class="book">
+        <img class="cover" src="h-cta.jpg" alt="Rosto de mulher em close, com mechas de cabelo ao vento e luz do sol" style="object-position:62% 40%">
+        <div class="panel">
+          <div><span class="label">Agendamento</span><h2>Sua pele merece um olhar <span class="it">atento.</span></h2></div>
+          <p class="intro">Agende pelo WhatsApp da clínica na cidade em que você prefere ser atendido.</p>
+          <div>
+            <div class="place">
+              <div><p class="city">Guarapuava</p><small>Policlínica Guarapuava</small><span class="phone">(42) 8416-5338</span></div>
+              <a class="btn btn--solid light" data-wa href="https://wa.me/554284165338" target="_blank" rel="noopener">Agendar <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span></a>
+            </div>
+            <div class="place">
+              <div><p class="city">Castro</p><small>Clínica Acesso Saúde</small></div>
+              <a class="btn light" href="https://wa.link/hwp9cw" target="_blank" rel="noopener">Agendar <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span></a>
+            </div>
+          </div>
+          <div class="qa">
+            <details><summary>Atende convênio?</summary><p>As consultas são particulares. <span class="todo">a confirmar</span></p></details>
+            <details><summary>Quanto tempo dura a consulta?</summary><p>Cerca de 40 minutos, com tempo para exame e explicação do plano. <span class="todo">a confirmar</span></p></details>
+            <details><summary>O retorno está incluso?</summary><p>O retorno para mostrar exames está incluso em até 30 dias. <span class="todo">a confirmar</span></p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="mark" aria-hidden="true">Felipe <span class="it">Stella</span></p>
+    <div class="f-bot">
+      <p>Dr. Luis Felipe Stella Santos · Médico dermatologista · CRM-PR 43256 · RQE 34609. Conteúdo educativo, não substitui a consulta médica. Imagens ilustrativas (Unsplash).</p>
+      <p><a href="https://www.instagram.com/dr.felipestella/" target="_blank" rel="noopener">Instagram @dr.felipestella</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="btn btn--solid float" data-wa href="https://wa.me/554284165338" target="_blank" rel="noopener">Agendar <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span></a>
+
+<script>
+// WhatsApp de Guarapuava com mensagem pronta (e o assunto, quando houver)
+(function(){
+  var base="https://wa.me/554284165338?text=";
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    var topic=a.getAttribute("data-wa");
+    a.href=base+encodeURIComponent("Olá, vim pelo site e gostaria de agendar uma consulta com o Dr. Felipe"+(topic?" sobre "+topic:"")+".");
+  });
+})();
+// Carrossel de tratamentos
+(function(){
+  var track=document.getElementById("track"),count=document.getElementById("count");
+  if(!track) return;
+  var cards=track.children,n=cards.length;
+  function step(){return cards[0].getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||12)}
+  function update(){
+    var i=Math.min(n-1,Math.round(track.scrollLeft/step()));
+    if(track.scrollLeft+track.clientWidth>=track.scrollWidth-4) i=n-1;
+    count.textContent=String(i+1).padStart(2,"0")+" / "+String(n).padStart(2,"0");
+  }
+  document.getElementById("prev").addEventListener("click",function(){track.scrollBy({left:-step(),behavior:"smooth"})});
+  document.getElementById("next").addEventListener("click",function(){track.scrollBy({left:step(),behavior:"smooth"})});
+  track.addEventListener("scroll",function(){window.requestAnimationFrame(update)},{passive:true});
+})();
+// Animações ao rolar
+(function(){
+  if(!window.matchMedia||window.matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("anim");
+  var groups=[
+    [".manifesto .wrap>*",0],[".treat .intro>*",0],[".tcard",1],[".about .right>*",0],[".spec>div",1],
+    [".rev-head>*",0],[".mosaic>*",1],[".book .panel>*",0],[".mark",0],[".f-bot",0]
+  ];
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+  groups.forEach(function(g){
+    document.querySelectorAll(g[0]).forEach(function(el,i){
+      el.classList.add("rv");el.style.setProperty("--d",(Math.min(i,6)*(g[1]?.09:.07))+"s");io.observe(el);
+    });
+  });
+  document.querySelectorAll(".about .pic,.mosaic .ph,.book").forEach(function(el){el.classList.add("rv-img");io.observe(el)});
+  // Parallax leve no hero e nas fotos flutuantes, cabeçalho ao rolar
+  var hero=document.querySelector(".hero>img"),floats=document.querySelectorAll(".float-ph"),man=document.querySelector(".manifesto"),head=document.querySelector("header"),tick=false;
+  function frame(){
+    var y=window.scrollY;
+    if(hero&&y<window.innerHeight*1.2) hero.style.setProperty("--py",Math.min(y*.14,hero.parentNode.offsetHeight*.15).toFixed(1)+"px");
+    if(man){var r=man.getBoundingClientRect(),c=(r.top+r.height/2-window.innerHeight/2);floats.forEach(function(f,i){f.style.setProperty("--py",(c*(i%2?-.08:.06)).toFixed(1)+"px")})}
+    head.classList.toggle("scrolled",y>20);
+    tick=false;
+  }
+  window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+  frame();
+})();
+</script>
