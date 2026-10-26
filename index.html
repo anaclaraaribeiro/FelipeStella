@@ -253,11 +253,31 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
 /* Celular */
 @media (max-width:640px){
   section{padding-block:3.5rem}
-  .hero{min-height:0;border-radius:24px}
-  .hero>img{object-position:62% 16% !important}
-  .hero .in{padding:20rem 1.2rem 1.3rem;gap:1.4rem}
-  .hero h1{font-size:2.45rem}
-  .hero .lede{font-size:.9rem}
+  /* Hero no celular: foto em cima, texto embaixo sobre o fundo claro */
+  .hero{min-height:0;height:auto;overflow:visible;border-radius:0;color:var(--fg)}
+  .hero::after{display:none}
+  .hero>img{position:relative;inset:auto;top:0 !important;width:100%;height:clamp(340px,92vw,420px);translate:none !important;border-radius:24px;object-position:50% 42% !important}
+  .hero .in{position:static;padding:1.6rem 0 0;gap:1.3rem}
+  .hero .kicker{color:var(--accent)}
+  .hero h1{font-size:2.45rem;text-shadow:none}
+  .hero .lede{font-size:.92rem;color:var(--fg-soft)}
+  .hero.on-photo .btn{--c:var(--a);--k:var(--b)}
+  .hero .rating{color:var(--fg-soft)}
+  .hero .rating b{color:var(--fg)}
+  .hero .st{color:#c08a3e}
+  .hero .tags span{background:var(--white);border:1px solid var(--hair);color:var(--fg-soft);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+  .hero .doc{background:var(--white);border:1px solid var(--hair);color:var(--fg);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+  .hero .doc small{color:var(--fg-soft)}
+  .hero .doc a{color:var(--fg)}
+  /* Sobre */
+  .tone{padding-block:.8rem 1.6rem}
+  .about{gap:1.4rem}
+  .about .right{gap:1.1rem}
+  .about h2{margin-top:.7rem}
+  /* Agendamento: foto em cima, painel sobre fundo marrom */
+  .book{display:block;padding:0;background:#5b3521}
+  .book>img{position:relative;inset:auto;height:300px;width:100%;object-position:42% 38%;z-index:0}
+  .book .panel{position:relative;margin:-70px .6rem .6rem}
   .cta-row{gap:1rem}
   .doc{width:100%}
   .manifesto{padding-block:9rem 10rem}
@@ -269,22 +289,35 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   .float-ph.f4{right:5%;bottom:1rem;width:78px;height:100px}
   .anim .manifesto.in .float-ph{clip-path:inset(0 0 round 14px)}
   .tcard{flex-basis:78vw}
-  .about .pic{min-height:380px}
+  .about .pic{min-height:340px}
   .spec .name{padding-block:1.2rem}
   .rev-head{margin-bottom:1.8rem}
   .mosaic{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;grid-auto-rows:auto;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
   .mosaic::-webkit-scrollbar{display:none}
   .mosaic>*{scroll-snap-align:start}
   .mosaic .ph,.mosaic .ph.tall{grid-row:auto;min-height:320px}
-  .book{padding-top:260px}
   .book .panel{padding:1.5rem}
 }
 
 .float{display:none}
 @media (max-width:640px){
-  .float{display:inline-flex;position:fixed;z-index:55;right:max(14px,calc(env(safe-area-inset-right,0px) + 14px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);box-shadow:0 10px 30px rgba(40,18,6,.3)}
-  footer{padding-bottom:5.5rem}
-  .bar>.btn{display:none}
+  /* Navbar: o botão Agendar fica dentro da pílula */
+  .bar{padding:.4rem .4rem .4rem 1.1rem}
+  .bar>.btn{font-size:.8rem;padding:.32rem .35rem .32rem .95rem;gap:.55rem}
+  .bar>.btn .ico{width:1.7rem;height:1.7rem}
+  /* Botões principais na largura da tela */
+  .hero .cta-row{flex-direction:column;align-items:stretch}
+  .hero .cta-row .btn,.manifesto .btn,.book .place .btn{width:100%;justify-content:space-between}
+  .manifesto .btn{display:flex}
+  /* Tratamentos: só deslizar */
+  .treat .ctrl{display:none}
+  /* Depoimentos: só as avaliações */
+  .mosaic .ph{display:none}
+  .mosaic{grid-auto-columns:86%}
+  /* Agendamento */
+  .book .place{flex-direction:column;align-items:stretch;gap:.8rem}
+  /* Rodapé: ícone e texto centralizados */
+  .f-bot{flex-direction:column-reverse;align-items:center;text-align:center;gap:1rem}
 }
 </style>
 
