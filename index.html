@@ -104,10 +104,10 @@ section{padding-block:clamp(4rem,8vw,7rem)}
 .manifesto p.big .inline-img{border-color:var(--white);box-shadow:0 6px 20px -10px rgba(60,35,15,.4)}
 .manifesto .btn{margin-top:2.4rem}
 .float-ph{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(60,35,15,.5)}
-.float-ph.f1{left:4%;top:12%;width:150px;height:96px}
-.float-ph.f2{right:5%;top:18%;width:110px;height:120px}
-.float-ph.f3{left:9%;bottom:12%;width:110px;height:110px}
-.float-ph.f4{right:10%;bottom:9%;width:160px;height:96px}
+.float-ph.f1{left:4%;top:10%;width:130px;height:168px}
+.float-ph.f2{right:5%;top:14%;width:112px;height:150px}
+.float-ph.f3{left:10%;bottom:8%;width:108px;height:142px}
+.float-ph.f4{right:10%;bottom:7%;width:128px;height:166px}
 @media (max-width:1100px){.float-ph{display:none}}
 
 /* 3. Tratamentos: carrossel */
@@ -220,7 +220,7 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   .anim .rv.in{opacity:1;transform:none}
   .anim .rv-img img{transform:scale(1.1);transition:transform 1.8s cubic-bezier(.2,.7,.1,1) var(--d,0s)}
   .anim .rv-img.in img{transform:none}
-  /* Frase central: as fotos em volta se abrem girando e assentam no lugar, a foto do meio da frase estica; depois seguem o mouse com profundidades diferentes */
+  /* Frase central: as fotos em volta se abrem girando e assentam no lugar, a foto do meio da frase estica; depois flutuam de leve */
   .anim .manifesto p.big .inline-img{width:.25em;transition:width 1.2s cubic-bezier(.16,.84,.2,1) .7s}
   .anim .manifesto.in p.big .inline-img{width:1.55em}
   .anim .manifesto .float-ph{opacity:.15;scale:.55;rotate:var(--r0,0deg);clip-path:inset(35% 35% round 18px);transition:opacity .9s ease var(--fd,0s),scale 1.5s cubic-bezier(.16,.84,.2,1) var(--fd,0s),rotate 1.7s cubic-bezier(.16,.84,.2,1) var(--fd,0s),clip-path 1.3s cubic-bezier(.16,.84,.2,1) var(--fd,0s)}
@@ -297,10 +297,10 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   </div>
 
   <section class="manifesto">
-    <span class="float-ph f1"><img class="cover" src="u-rosto.jpg" alt=""></span>
-    <span class="float-ph f2"><img class="cover" src="u-ombro.jpg" alt=""></span>
-    <span class="float-ph f3"><img class="cover" src="u-serum.jpg" alt="" style="object-position:50% 30%"></span>
-    <span class="float-ph f4"><img class="cover" src="u-sardas.jpg" alt="" style="object-position:50% 35%"></span>
+    <span class="float-ph f1"><img class="cover" src="m-cachos.jpg" alt="" style="object-position:50% 40%"></span>
+    <span class="float-ph f2"><img class="cover" src="m-toque.jpg" alt="" style="object-position:50% 40%"></span>
+    <span class="float-ph f3"><img class="cover" src="m-serum.jpg" alt="" style="object-position:50% 35%"></span>
+    <span class="float-ph f4"><img class="cover" src="m-luz.jpg" alt="" style="object-position:50% 35%"></span>
     <div class="wrap">
       <span class="label">Sobre o cuidado</span>
       <p class="big"><span class="it">Cada pele é única,</span> e o tratamento <span class="inline-img"><img src="u-textura.jpg" alt=""></span> também. <span class="soft">Escuta atenta, diagnóstico claro e acompanhamento com calma, consulta após consulta.</span></p>
@@ -362,7 +362,7 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   </section>
 
   <section class="tone" id="sobre">
-    <div class="bg" aria-hidden="true"><img class="cover" src="u-hero.jpg" alt=""></div>
+    <div class="bg" aria-hidden="true"><img class="cover" src="s-fundo.jpg" alt=""></div>
     <div class="wrap about">
       <figure class="pic"><img class="cover" src="felipe-jaleco.jpg" alt="Dr. Felipe Stella sorrindo, de jaleco branco"></figure>
       <div class="right">
@@ -499,20 +499,18 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   });
   document.querySelectorAll(".about .pic,.mosaic .ph,.book").forEach(function(el){el.classList.add("rv-img");io.observe(el)});
   // Frase central: fotos entram em sequência e depois seguem o mouse
-  var man0=document.querySelector(".manifesto"),mx=0,my=0;
+  var man0=document.querySelector(".manifesto");
   if(man0){
     man0.querySelectorAll(".float-ph").forEach(function(f,i){f.style.setProperty("--fd",(.1+i*.18)+"s")});
     var mio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){man0.classList.add("in");mio.disconnect();setTimeout(function(){man0.classList.add("settled")},2600)}})},{threshold:.3});
     mio.observe(man0);
-    man0.addEventListener("mousemove",function(e){var r=man0.getBoundingClientRect();mx=(e.clientX-r.left)/r.width*2-1;my=(e.clientY-r.top)/r.height*2-1;if(!tick){tick=true;requestAnimationFrame(frame)}});
-    man0.addEventListener("mouseleave",function(){mx=0;my=0;if(!tick){tick=true;requestAnimationFrame(frame)}});
   }
   // Parallax leve no hero e nas fotos flutuantes, cabeçalho ao rolar
   var hero=document.querySelector(".hero>img"),floats=document.querySelectorAll(".float-ph"),man=document.querySelector(".manifesto"),head=document.querySelector("header"),tick=false;
   function frame(){
     var y=window.scrollY;
     if(hero&&y<window.innerHeight*1.2) hero.style.setProperty("--py",Math.min(y*.14,hero.parentNode.offsetHeight*.15).toFixed(1)+"px");
-    if(man){var r=man.getBoundingClientRect(),c=(r.top+r.height/2-window.innerHeight/2);floats.forEach(function(f,i){var d=[22,-30,34,-18][i]||20;f.style.setProperty("--px",(mx*d).toFixed(1)+"px");f.style.setProperty("--py",(c*(i%2?-.08:.06)+my*d).toFixed(1)+"px")})}
+    if(man){var r=man.getBoundingClientRect(),c=(r.top+r.height/2-window.innerHeight/2);floats.forEach(function(f,i){f.style.setProperty("--py",(c*(i%2?-.08:.06)).toFixed(1)+"px")})}
     head.classList.toggle("scrolled",y>20);
     tick=false;
   }
