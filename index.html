@@ -488,7 +488,7 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   if(!window.matchMedia||window.matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver" in window)) return;
   document.documentElement.classList.add("anim");
   var groups=[
-    [".manifesto .wrap>*",0],[".treat .intro>*",0],[".tcard",1],[".about .right>*",0],[".spec>div",1],
+    [".manifesto .wrap>*",0],[".treat .intro>*",0],[".about .right>*",0],[".spec>div",1],
     [".rev-head>*",0],[".mosaic>*",1],[".book .panel>*",0],[".mark",0],[".f-bot",0]
   ];
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
@@ -498,6 +498,13 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
     });
   });
   document.querySelectorAll(".about .pic,.mosaic .ph,.book").forEach(function(el){el.classList.add("rv-img");io.observe(el)});
+  // Carrossel: os cards entram juntos quando a faixa aparece, e não um a um ao clicar nas setas
+  var trk=document.getElementById("track");
+  if(trk){
+    Array.prototype.forEach.call(trk.children,function(c,i){c.classList.add("rv");c.style.setProperty("--d",(Math.min(i,4)*.09)+"s")});
+    var tio=new IntersectionObserver(function(es){if(es[0].isIntersecting){Array.prototype.forEach.call(trk.children,function(c){c.classList.add("in")});tio.disconnect()}},{threshold:.15});
+    tio.observe(trk);
+  }
   // Frase central: fotos entram em sequência e depois seguem o mouse
   var man0=document.querySelector(".manifesto");
   if(man0){
