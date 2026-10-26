@@ -253,18 +253,15 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
 /* Celular */
 @media (max-width:640px){
   section{padding-block:3.5rem}
-  /* Hero no celular: foto em cima, texto embaixo sobre o fundo claro */
-  .hero{min-height:0;height:auto;overflow:visible;border-radius:0;color:var(--fg)}
+  /* Hero no celular: texto sobre a foto; tags e card do Dr. ficam abaixo, no fundo claro */
+  .hero{display:grid;grid-template-columns:minmax(0,1fr);min-height:0;height:auto;overflow:visible;border-radius:0}
   .hero::after{display:none}
-  .hero>img{position:relative;inset:auto;top:0 !important;width:100%;height:clamp(340px,92vw,420px);translate:none !important;border-radius:24px;object-position:50% 42% !important}
-  .hero .in{position:static;padding:1.6rem 0 0;gap:1.3rem}
-  .hero .kicker{color:var(--accent)}
-  .hero h1{font-size:2.45rem;text-shadow:none}
-  .hero .lede{font-size:.92rem;color:var(--fg-soft)}
-  .hero.on-photo .btn{--c:var(--a);--k:var(--b)}
-  .hero .rating{color:var(--fg-soft)}
-  .hero .rating b{color:var(--fg)}
-  .hero .st{color:#c08a3e}
+  .hero .in{display:contents}
+  .hero>img{grid-area:1/1;position:relative;inset:auto;top:0 !important;width:100%;height:100%;translate:none !important;border-radius:24px;object-position:50% 34% !important}
+  .hero .copy{grid-area:1/1;z-index:2;align-self:end;padding:13rem 1.2rem 1.4rem;border-radius:24px;background:linear-gradient(180deg,transparent 0%,rgba(25,12,5,.15) 35%,rgba(25,12,5,.72) 100%)}
+  .hero .side{grid-area:2/1;padding-top:1rem;color:var(--fg)}
+  .hero h1{font-size:2.45rem}
+  .hero .lede{font-size:.92rem}
   .hero .tags span{background:var(--white);border:1px solid var(--hair);color:var(--fg-soft);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
   .hero .doc{background:var(--white);border:1px solid var(--hair);color:var(--fg);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
   .hero .doc small{color:var(--fg-soft)}
@@ -305,17 +302,11 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   .bar{padding:.4rem .4rem .4rem 1.1rem}
   .bar>.btn{font-size:.8rem;padding:.32rem .35rem .32rem .95rem;gap:.55rem}
   .bar>.btn .ico{width:1.7rem;height:1.7rem}
-  /* Botões principais na largura da tela */
-  .hero .cta-row{flex-direction:column;align-items:stretch}
-  .hero .cta-row .btn,.manifesto .btn,.book .place .btn{width:100%;justify-content:space-between}
-  .manifesto .btn{display:flex}
   /* Tratamentos: só deslizar */
   .treat .ctrl{display:none}
   /* Depoimentos: só as avaliações */
   .mosaic .ph{display:none}
-  .mosaic{grid-auto-columns:86%}
-  /* Agendamento */
-  .book .place{flex-direction:column;align-items:stretch;gap:.8rem}
+  .mosaic{grid-auto-columns:86%;padding:4px 4px 2.6rem;margin:-4px -4px -2rem;scroll-padding-inline:4px}
   /* Rodapé: ícone e texto centralizados */
   .f-bot{flex-direction:column-reverse;align-items:center;text-align:center;gap:1rem}
 }
