@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dr. Felipe Stella</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23b0592a'/%3E%3Ctext x='50%25' y='50%25' dy='.36em' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%23fffaf4'%3EFS%3C/text%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Dr. Felipe Stella, médico dermatologista em Guarapuava (PR). Dermatologia clínica, cirúrgica e estética, tricologia e queda de cabelo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +23,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{background:var(--bg);color:var(--fg);font-family:var(--f-sans);font-size:1rem;line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-sans);font-size:1rem;line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
 a{color:inherit}
 h1,h2,h3{margin:0;font-weight:300;text-wrap:balance;letter-spacing:-.035em;line-height:1.04}
@@ -104,6 +105,9 @@ section{padding-block:clamp(4rem,8vw,7rem)}
 .manifesto p.big{max-width:54rem;margin-inline:auto;font-size:clamp(1.6rem,3.6vw,2.9rem);line-height:1.22;letter-spacing:-.03em}
 .manifesto p.big .soft{color:var(--fg-mute)}
 .manifesto p.big .inline-img{border-color:var(--white);box-shadow:0 6px 20px -10px rgba(60,35,15,.4)}
+/* A pílula da frase alterna entre tipos de pele */
+.skins img{opacity:0;transition:opacity .9s ease}
+.skins img.on{opacity:1}
 .manifesto .btn{margin-top:2.4rem}
 .float-ph{position:absolute;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(60,35,15,.5)}
 .float-ph.f1{left:4%;top:10%;width:130px;height:168px}
@@ -147,7 +151,7 @@ section{padding-block:clamp(4rem,8vw,7rem)}
 .about .right{display:flex;flex-direction:column;gap:1.6rem;min-width:0}
 .about h2{font-size:var(--s-h2);margin-top:1rem}
 .about .bio{color:var(--on-soft);max-width:34rem;font-size:.95rem}
-.spec{border:1px solid var(--on-hair);border-radius:4px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.spec{border:1px solid var(--on-hair);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
 .spec>div{padding:1.1rem 1.3rem;border-bottom:1px solid var(--on-hair);min-width:0}
 .spec .row{grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .spec .cap{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-soft)}
@@ -208,7 +212,7 @@ section{padding-block:clamp(4rem,8vw,7rem)}
 
 /* Rodapé */
 footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
-.mark{font-size:clamp(3.6rem,16.5vw,14.5rem);font-weight:200;letter-spacing:-.06em;line-height:.85;white-space:nowrap;text-align:center}
+.mark{font-size:clamp(3.6rem,16.5vw,14.5rem);font-weight:200;letter-spacing:-.06em;line-height:.85;padding-bottom:.16em;white-space:nowrap;text-align:center}
 .mark .it{color:var(--accent)}
 .f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid var(--hair);font-size:.74rem;color:var(--fg-mute)}
 .f-bot{align-items:center}
@@ -285,7 +289,10 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   .float-ph.f3{left:10%;bottom:1.8rem;width:64px;height:84px}
   .float-ph.f4{right:5%;bottom:1rem;width:78px;height:100px}
   .anim .manifesto.in .float-ph{clip-path:inset(0 0 round 14px)}
-  .tcard{flex-basis:78vw}
+  .tcard{flex-basis:78vw;scroll-snap-stop:always}
+  /* Carrosséis encostam nas bordas da tela, sem cortar os cards no meio da margem */
+  .track{margin-inline:-12px;padding-inline:12px;scroll-padding-inline:12px}
+  .about .pic{border-radius:16px}
   .about .pic{min-height:340px}
   .spec .name{padding-block:1.2rem}
   .rev-head{margin-bottom:1.8rem}
@@ -306,7 +313,8 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   .treat .ctrl{display:none}
   /* Depoimentos: só as avaliações */
   .mosaic .ph{display:none}
-  .mosaic{grid-auto-columns:86%;padding:4px 4px 2.6rem;margin:-4px -4px -2rem;scroll-padding-inline:4px}
+  .mosaic{grid-auto-columns:86%;padding:4px 12px 2.6rem;margin:-4px -12px -2rem;scroll-padding-inline:12px}
+  .mosaic>*{scroll-snap-stop:always}
   /* Rodapé: ícone e texto centralizados */
   .f-bot{flex-direction:column-reverse;align-items:center;text-align:center;gap:1rem}
 }
@@ -359,7 +367,7 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
     <span class="float-ph f4"><img class="cover" src="m-luz.jpg" alt="" style="object-position:50% 35%"></span>
     <div class="wrap">
       <span class="label">Sobre o cuidado</span>
-      <p class="big"><span class="it">Cada pele é única,</span> e o tratamento <span class="inline-img"><img src="u-textura.jpg" alt=""></span> também. <span class="soft">Escuta atenta, diagnóstico claro e acompanhamento com calma, consulta após consulta.</span></p>
+      <p class="big"><span class="it">Cada pele é única,</span> e o tratamento <span class="inline-img skins" aria-hidden="true"><img class="on" src="u-textura.jpg" alt=""><img src="m-cachos.jpg" alt="" style="object-position:62% 58%"><img src="u-sardas.jpg" alt="" style="object-position:62% 52%"><img src="m-toque.jpg" alt="" style="object-position:30% 30%"><img src="t-acne.jpg" alt="" style="object-position:40% 40%"></span> também. <span class="soft">Escuta atenta, diagnóstico claro e acompanhamento com calma, consulta após consulta.</span></p>
       <a class="btn btn--solid" data-wa href="https://wa.me/554284165338" target="_blank" rel="noopener">Agendar avaliação <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></span></a>
     </div>
   </section>
@@ -523,6 +531,13 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
     var topic=a.getAttribute("data-wa");
     a.href=base+encodeURIComponent("Olá, vim pelo site e gostaria de agendar uma consulta com o Dr. Felipe"+(topic?" sobre "+topic:"")+".");
   });
+})();
+// Pílula da frase central: troca o tipo de pele a cada poucos segundos
+(function(){
+  var imgs=document.querySelectorAll(".skins img");
+  if(imgs.length<2||(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+  var i=0;
+  setInterval(function(){imgs[i].classList.remove("on");i=(i+1)%imgs.length;imgs[i].classList.add("on")},2400);
 })();
 // Carrossel de tratamentos
 (function(){
