@@ -83,7 +83,7 @@ section{padding-block:clamp(4rem,8vw,7rem)}
 .st{color:#f0c07a;letter-spacing:.1em;font-size:.72rem}
 .hero .side{display:flex;flex-direction:column;align-items:flex-end;gap:.7rem;min-width:0}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:flex-end}
-.tags span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:.36rem .8rem;border-radius:999px}
+.tags span{display:inline-flex;align-items:center;font-size:.66rem;line-height:1;letter-spacing:.14em;text-transform:uppercase;padding:.5rem .85rem .45rem;border-radius:999px}
 .doc{display:flex;gap:.8rem;align-items:center;padding:.6rem;border-radius:22px;width:min(100%,290px)}
 .doc .face{position:relative;width:84px;height:96px;border-radius:16px;overflow:hidden;flex:none;background:#f3f3f1}
 .doc .face img{object-position:50% 15%}
@@ -130,7 +130,7 @@ section{padding-block:clamp(4rem,8vw,7rem)}
 .tcard:hover img{transform:scale(1.05)}
 .tcard::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(25,12,5,.12),transparent 30%,transparent 48%,rgba(25,12,5,.7))}
 .tcard .tg{position:absolute;z-index:2;left:1rem;top:1rem;right:4rem;display:flex;flex-wrap:wrap;gap:.35rem}
-.tcard .tg span{font-size:.64rem;padding:.3rem .7rem;border-radius:999px}
+.tcard .tg span{display:inline-flex;align-items:center;font-size:.64rem;line-height:1;padding:.45rem .75rem .4rem;border-radius:999px}
 .tcard .go{position:absolute;z-index:2;right:1rem;top:1rem;display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--on);color:var(--a);transition:transform .3s}
 .tcard:hover .go{transform:rotate(-45deg)}
 .tcard .go svg{width:14px;height:14px}
