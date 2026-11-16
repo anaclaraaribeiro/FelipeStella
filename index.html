@@ -247,7 +247,9 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
 .mark .it{color:var(--accent)}
 .f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--fg-soft)}
 .f-bot{align-items:center}
-.credit{margin:0;padding-block:.9rem 0;font-size:.74rem;color:var(--fg-mute);text-align:center}
+.f-bot .legal{flex:1 1 30rem;min-width:0}
+.f-right{display:flex;align-items:center;gap:1.4rem;flex:none}
+.credit{margin:0;font-size:.78rem;color:var(--fg-soft);white-space:nowrap}
 .credit a{color:var(--fg);text-underline-offset:3px}
 .credit a:hover{color:var(--accent)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -351,7 +353,11 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   .mosaic{grid-auto-columns:86%;padding:4px 12px 2.6rem;margin:-4px -12px -2rem;scroll-padding-inline:12px}
   .mosaic>*{scroll-snap-stop:always}
   /* Rodapé: ícone e texto centralizados */
-  .f-bot{flex-direction:column-reverse;align-items:center;text-align:center;gap:1rem}
+  .f-bot{flex-direction:column;align-items:center;text-align:center;gap:1rem}
+  .f-bot .legal{flex:none}
+  .f-right{display:contents}
+  .f-bot .social{order:-1}
+  .f-bot .credit{order:2}
 }
 </style>
 </head>
@@ -551,10 +557,12 @@ footer{padding-block:clamp(3rem,6vw,4.5rem) 1.6rem;overflow:hidden}
   <div class="wrap">
     <p class="mark" aria-hidden="true">Felipe <span class="it">Stella</span></p>
     <div class="f-bot">
-      <p>Dr. Luis Felipe Stella Santos · Médico dermatologista · CRM-PR 43256 · RQE 34609. Conteúdo educativo, não substitui a consulta médica.</p>
+      <p class="legal">Dr. Luis Felipe Stella Santos · Médico dermatologista · CRM-PR 43256 · RQE 34609. Conteúdo educativo, não substitui a consulta médica.</p>
+      <div class="f-right">
+      <p class="credit">Site por <a href="https://www.lowna.com.br" target="_blank" rel="noopener noreferrer">Löwna Studios</a></p>
       <a class="social" href="https://www.instagram.com/dr.felipestella/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @dr.felipestella"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
     </div>
-    <p class="credit">Site por <a href="https://www.lowna.com.br" target="_blank" rel="noopener noreferrer">Löwna Studios</a></p>
   </div>
 </footer>
 
